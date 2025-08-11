@@ -5,7 +5,7 @@ Additionally, Phonique aims to provide a module for exploring the Discogs databa
 
 Phonique aims to improve workflows that music collectors and DJs already do manually and consumes a lot of their time. It is packed with features that cater to various types of users.
 
-<img width="1294" height="831" alt="Image" src="https://github.com/user-attachments/assets/02f85653-8019-428d-acea-f122c066edae" />
+<img width="1295" height="831" alt="Image" src="https://github.com/user-attachments/assets/d96ac22f-3f43-48a1-b21a-8e9d8970398b" />
 
 ## Features (some still need implementation)
 - Organize music files into (traiditional) playlists. (working)
