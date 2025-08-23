@@ -4,10 +4,7 @@ use crate::{
     menu_bar::{self, MenuBar},
     player::{self, Player},
     sidebar::{self, Sidebar, playlists::MenuOptions},
-    view_types::{
-        browse::{self, BrowseView},
-        compact_view::{self, CompactView},
-    },
+    view_types::compact_view::{self, CompactView},
 };
 use iced::{
     Element, Length, Subscription, Task,
@@ -43,7 +40,6 @@ pub enum Message {
     MetadataScanningStarted(Option<PathBuf>),
     MetadataScanningEnded,
     MenuBar(menu_bar::Message),
-    Browse(browse::Message),
     Error(String),
 }
 
@@ -51,7 +47,6 @@ pub struct MainScreen {
     pane_state: pane_grid::State<Panes>,
     pane_ratio: f32,
     compact_view: CompactView,
-    browse_view: BrowseView,
     player: Player,
     state: AppState,
     // we use this both as a flag and something to hold the value in when the files are dropped on the main window
@@ -83,7 +78,6 @@ impl Default for MainScreen {
             scanning_files: None,
             scannned_files: Vec::new(),
             compact_view: CompactView::default(),
-            browse_view: BrowseView::default(),
             menubar: MenuBar::default(),
             sidebar: Sidebar::default(),
         }
@@ -204,15 +198,6 @@ impl MainScreen {
                 };
                 return Task::batch([task.map(Message::CompactView), main_task]);
             }
-            Message::Browse(msg) => {
-                if let browse::Message::Discogs(crate::discogs::ui::Message::Play(playable)) = msg {
-                    return self
-                        .player
-                        .update(player::Message::Play(playable))
-                        .map(Message::Player);
-                }
-                return self.browse_view.update(msg).map(Message::Browse);
-            }
             Message::Player(msg) => match msg {
                 player::Message::Next => {
                     self.state.next_playable();
@@ -294,7 +279,6 @@ impl MainScreen {
                             .compact_view
                             .view(&self.state)
                             .map(Message::CompactView),
-                        Section::Browse => self.browse_view.view().map(Message::Browse),
                         _ => text("Empty").into(),
                     };
 
