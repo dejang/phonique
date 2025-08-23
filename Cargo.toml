@@ -2,6 +2,14 @@
 name = "phoniq"
 version = "0.1.0"
 edition = "2024"
+repository = "https://github.com/dejang/phonique"
+authors = ["dejang"]
+
+[package.metadata.wix]
+upgrade-guid = "AC24AC30-3F6E-4CB3-8606-12CA704D8710"
+path-guid = "48D2745F-1AB0-4C99-9C55-6A9368ECFB68"
+license = false
+eula = false
 
 [dependencies]
 directories = "6.0.0"
@@ -37,3 +45,8 @@ walkdir = "2.5.0"
 
 [dev-dependencies]
 tokio = { version = "1", features = ["macros", "rt"] }
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"
+lto = "thin"
