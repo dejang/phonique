@@ -236,8 +236,8 @@ where
         }
     }
 
-    fn diff(&self, tree: &mut Tree) {
-        tree.diff_children(std::slice::from_ref(&self.content));
+    fn diff(&mut self, tree: &mut Tree) {
+        tree.diff_children(std::slice::from_mut(&mut self.content));
     }
 
     fn update(
@@ -311,7 +311,7 @@ where
     }
 
     fn layout(
-        &self,
+        &mut self,
         tree: &mut iced::advanced::widget::Tree,
         renderer: &Renderer,
         limits: &iced::advanced::layout::Limits,
@@ -323,7 +323,7 @@ where
             self.padding,
             |limits| {
                 self.content
-                    .as_widget()
+                    .as_widget_mut()
                     .layout(&mut tree.children[0], renderer, limits)
             },
             |content, size| {

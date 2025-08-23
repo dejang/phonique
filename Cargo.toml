@@ -4,7 +4,6 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-async-trait = "0.1.88"
 directories = "6.0.0"
 env_logger = "0.11.6"
 iced = { git = "https://github.com/iced-rs/iced.git", features = [
@@ -19,31 +18,21 @@ iced_test = { git = "https://github.com/iced-rs/iced.git" }
 jemallocator = "0.5.4"
 lofty = "0.22.3"
 log = "0.4.26"
-open = "5.3.2"
 rand = "0.9.1"
 rayon = "1.10.0"
 regex = "1.11.1"
-reqwest = { version = "0.12.15", default-features = false, features = [
-    "blocking",
-    "rustls-tls",
-] }
-resolve-path = "0.1.0"
 rfd = "0.15.3"
 rodio = { version = "0.20.1", features = [
     "symphonia-aac",
     "symphonia-aiff",
     "symphonia-all",
 ] }
-rusqlite = { version = "0.35.0", features = [
-    "bundled"
-] }
+rusqlite = { version = "0.35.0", features = ["bundled"] }
 serde = { version = "1.0.219", features = ["derive", "serde_derive"] }
-serde_json = "1.0.140"
 thiserror = "2.0.12"
 trash = "5.2.2"
 unicode-segmentation = "1.12.0"
 urlencoding = "2.1.3"
-uuid = { version = "1.16.0", features = ["v4"] }
 walkdir = "2.5.0"
 
 [dev-dependencies]

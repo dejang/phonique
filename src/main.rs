@@ -4,7 +4,6 @@ static GLOBAL: jemallocator::Jemalloc = jemallocator::Jemalloc;
 
 mod app_state;
 mod audio_scanner;
-mod discogs;
 mod fonts;
 mod icons;
 mod menu_bar;
@@ -37,13 +36,11 @@ pub fn main() -> iced::Result {
 }
 
 enum Phoniq {
-    Login(screen::login_screen::Login),
     Main(Box<screen::main_screen::MainScreen>),
 }
 
 #[derive(Debug, Clone)]
 enum Message {
-    Login(screen::login_screen::Message),
     Main(screen::main_screen::Message),
 }
 
@@ -56,13 +53,6 @@ impl Default for Phoniq {
 impl Phoniq {
     fn update(&mut self, message: Message) -> Task<Message> {
         match self {
-            Self::Login(screen) => match message {
-                Message::Login(message) => {
-                    screen.update(message);
-                    Task::none()
-                }
-                _ => Task::none(),
-            },
             Self::Main(screen) => match message {
                 Message::Main(message) => screen.update(message).map(Message::Main),
                 _ => Task::none(),
@@ -72,7 +62,6 @@ impl Phoniq {
 
     fn view(&self) -> Element<Message> {
         match self {
-            Phoniq::Login(login) => login.view().map(Message::Login),
             Phoniq::Main(main) => main.view().map(Message::Main),
         }
     }
