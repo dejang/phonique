@@ -1,6 +1,6 @@
 [package]
 name = "phoniq"
-version = "0.1.0"
+version = "0.1.6-alpha"
 edition = "2024"
 repository = "https://github.com/dejang/phonique"
 authors = ["dejang"]
@@ -23,7 +23,6 @@ iced = { git = "https://github.com/iced-rs/iced.git", features = [
     "debug",
 ] }
 iced_test = { git = "https://github.com/iced-rs/iced.git" }
-jemallocator = "0.5.4"
 lofty = "0.22.3"
 log = "0.4.26"
 rand = "0.9.1"

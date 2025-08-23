@@ -1,7 +1,3 @@
-extern crate jemallocator;
-#[global_allocator]
-static GLOBAL: jemallocator::Jemalloc = jemallocator::Jemalloc;
-
 mod app_state;
 mod audio_scanner;
 mod fonts;
