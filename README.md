@@ -5,8 +5,6 @@ Additionally, Phonique aims to provide a module for exploring the Discogs databa
 
 Phonique aims to improve workflows that music collectors and DJs already do manually and consumes a lot of their time. It is packed with features that cater to various types of users.
 
-<img width="1295" height="831" alt="Image" src="https://github.com/user-attachments/assets/d96ac22f-3f43-48a1-b21a-8e9d8970398b" />
-
 ## Features (some still need implementation)
 - Organize music files into (traiditional) playlists. (working)
 - Tag individual music files and then create smart playlists using your tags. Smart playlists are dynamic and don't require manually adding/removing songs to them as they are generated based on the attributes you choose.
