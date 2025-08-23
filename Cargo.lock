@@ -3361,7 +3361,7 @@ checksum = "9b4f627cb1b25917193a259e49bdad08f671f8d9708acfd5fe0a8c1455d87220"
 
 [[package]]
 name = "phoniq"
-version = "0.1.6-alpha"
+version = "0.1.0-alpha.1"
 dependencies = [
  "directories",
  "env_logger",
