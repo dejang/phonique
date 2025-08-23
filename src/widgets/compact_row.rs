@@ -172,12 +172,12 @@ where
         iced::advanced::widget::tree::State::new(CompactRowState::default())
     }
 
-    fn diff(&self, tree: &mut Tree) {
-        tree.diff_children(&self.content);
+    fn diff(&mut self, tree: &mut Tree) {
+        tree.diff_children(&mut self.content);
     }
 
     fn layout(
-        &self,
+        &mut self,
         tree: &mut Tree,
         renderer: &Renderer,
         limits: &iced::advanced::layout::Limits,
@@ -191,7 +191,7 @@ where
             self.padding.into(),
             self.spacing.into(),
             self.vertical_alignment,
-            &self.content,
+            &mut self.content,
             &mut tree.children,
         )
     }
